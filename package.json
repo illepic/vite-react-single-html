@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "npm run lint && tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint src/*.{js,jsx,ts,tsx,json} --fix && prettier --write ."
+    "lint": "eslint src/*.{js,jsx,ts,tsx,cjs,json} --cache --fix && prettier --write .",
+    "prepare": "husky install"
   },
   "dependencies": {
     "clsx": "^1.2.1",
@@ -26,11 +27,17 @@
     "eslint-config-xo": "^0.42.0",
     "eslint-config-xo-typescript": "^0.53.0",
     "eslint-plugin-react": "^7.31.8",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "postcss": "^8.4.16",
     "prettier": "2.7.1",
     "tailwindcss": "^3.1.8",
     "typescript": "^4.8.3",
     "vite": "^3.1.0",
     "vite-plugin-singlefile": "^0.11.1"
+  },
+  "lint-staged": {
+    "src/*.{js,jsx,ts,tsx,cjs,json}": "eslint --cache --fix",
+    "src/*.{js,jsx,ts,tsx,cjs,css,md,html}": "prettier --write"
   }
 }
