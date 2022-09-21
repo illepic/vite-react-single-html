@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "npm run lint && tsc && vite build",
     "preview": "vite preview",
+    "lint": "eslint src/*.{js,jsx,ts,tsx,cjs,json} --cache",
     "lint:fix": "eslint src/*.{js,jsx,ts,tsx,cjs,json} --cache --fix && prettier --write .",
     "prepare": "husky install"
   },

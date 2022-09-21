@@ -16,6 +16,7 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"],
+  // Adding config files here so eslint happy
+  "include": ["src", "*.ts", "*.cjs", ".eslintrc.cjs"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
