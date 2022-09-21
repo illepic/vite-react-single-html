@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Button from "./button";
+import ExampleCounter from "./example-counter";
 import Table from "./table";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="container mx-auto px-4">
       <header className="flex py-7">
@@ -46,14 +45,7 @@ function App() {
 
       <div className="pt-10">
         <p>Example of react state</p>
-        <button
-          className="px-4 py-1 text-white rounded-md bg-green-600 hover:bg-green-700"
-          onClick={() => {
-            setCount((count) => count + 1);
-          }}
-        >
-          Count is {count}
-        </button>
+        <ExampleCounter />
       </div>
     </div>
   );
