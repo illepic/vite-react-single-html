@@ -44,17 +44,17 @@ function App() {
       <p>Phases goes here</p>
       <p>Incentives goes here</p>
 
-      <button
-        className="px-4 py-1 text-white rounded-md bg-green-600 hover:bg-green-700"
-        onClick={() => {
-          setCount((count) => count + 1);
-        }}
-      >
-        Count is {count}
-      </button>
-      <p>
-        Edit <code>src/App.tsx</code> and save to test HMR
-      </p>
+      <div className="pt-10">
+        <p>Example of react state</p>
+        <button
+          className="px-4 py-1 text-white rounded-md bg-green-600 hover:bg-green-700"
+          onClick={() => {
+            setCount((count) => count + 1);
+          }}
+        >
+          Count is {count}
+        </button>
+      </div>
     </div>
   );
 }
