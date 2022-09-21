@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
 import Button from "./button";
+import Table from "./table";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <div className="container mx-auto px-4">
-      <h1 className="text-2xl mb-4 font-semibold">Phase proposal tool</h1>
-      <header className="flex">
+      <header className="flex py-7">
         <div className="flex-1 text-center">
           <div className="text-green-500 text-xl">Name</div>
           <div>Lennar Homes - Portland</div>
@@ -37,7 +37,10 @@ function App() {
         </div>
       </div>
 
-      <p>Table goes here</p>
+      <div className="pt-4">
+        <Table />
+      </div>
+
       <p>Phases goes here</p>
       <p>Incentives goes here</p>
 
