@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 import Button from "./button";
 
@@ -43,7 +43,9 @@ function App() {
 
       <button
         className="px-4 py-1 text-white rounded-md bg-green-600 hover:bg-green-700"
-        onClick={() => setCount((count) => count + 1)}
+        onClick={() => {
+          setCount((count) => count + 1);
+        }}
       >
         Count is {count}
       </button>
