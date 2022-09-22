@@ -1,5 +1,4 @@
 import React from "react";
-import { superstate } from "@superstate/core";
 
 import Button from "./button";
 import ExampleCounter from "./example-counter";
