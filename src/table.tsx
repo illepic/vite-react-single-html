@@ -1,36 +1,65 @@
 import React from "react";
+import { nanoid } from "nanoid";
+import { superstate } from "@superstate/core";
 import DataTable from "react-data-table-component";
+import type { TableColumn } from "react-data-table-component";
 
-type Row = {
-  title: string;
-  year: string;
-};
+import type { Phase } from "./types";
+import { useSuperState } from "@superstate/react";
 
-const columns = [
-  {
-    name: "Title",
-    selector: (row: Row) => row.title,
-  },
-  {
-    name: "Year",
-    selector: (row: Row) => row.year,
-  },
+const phases = [
+  superstate({
+    id: nanoid(),
+    name: "Phase 1",
+    nameOverride: "",
+    isNoCharge: false,
+    optionPhase: true,
+  }),
+  superstate({
+    id: nanoid(),
+    name: "Phase 2",
+    nameOverride: "",
+    isNoCharge: true,
+    optionPhase: false,
+  }),
 ];
 
-const data = [
+const phasesState = superstate(phases);
+
+const columns: Array<TableColumn<Phase>> = [
   {
-    id: 1,
-    title: "Beetlejuice",
-    year: "1988",
+    name: "Title",
+    selector: (row: Phase) => row.name,
   },
   {
-    id: 2,
-    title: "Ghostbusters",
-    year: "1984",
+    name: "Is No Charge",
+    selector: (row: Phase) => row.isNoCharge,
+    cell: (row, index, column, id) => (
+      <>
+        {/* <button
+          onClick={() => {
+            phasesState.set((prev) => [
+              ...prev,
+              prev[index].set((prev) => ({
+                ...prev,
+                isNoCharge: !prev.isNoCharge,
+              })),
+            ]);;
+          }}
+        >
+          {row.isNoCharge ? "no charge" : "charge"}
+        </button> */}
+        {/* <p>{console.log(column)}</p> */}
+      </>
+    ),
   },
 ];
 
 function Table() {
+  useSuperState(phasesState);
+
+  const data = phasesState.now().map((phase) => phase.now());
+
   return <DataTable columns={columns} data={data} />;
 }
 
